@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ArrayOperationsComponent from "./components/ArrayOperationsComponent";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [showArrayOperations, setShowArrayOperations] = useState(true);
+
+    return (
+        <div>
+            <h1>Пример хуков</h1>
+            <label>
+                Show Array Operations Component:
+                <input
+                    type="checkbox"
+                    checked={showArrayOperations}
+                    onChange={() => setShowArrayOperations(!showArrayOperations)}
+                />
+            </label>
+
+            {showArrayOperations && <ArrayOperationsComponent />}
+        </div>
+    );
+};
 
 export default App;
